@@ -280,8 +280,8 @@ do
             LibraryScheme["Font"] = Font.fromEnum(Enum.Font[theme["FontFace"]])
 
         else
-            FinalTheme["FontFace"] = "Code"
-            LibraryScheme["Font"] = Font.fromEnum(Enum.Font.Code)
+            FinalTheme["FontFace"] = "Jura"
+            LibraryScheme["Font"] = Font.fromEnum(Enum.Font.Jura)
         end
 
         for _, field in { "RedColor", "DarkColor", "WhiteColor" } do
