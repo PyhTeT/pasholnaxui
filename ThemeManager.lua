@@ -509,3 +509,28 @@ end
 
 getgenv().ObsidianThemeManager = ThemeManager
 return ThemeManager
+
+local Lighting = game:GetService("Lighting")
+
+local Blur = Instance.new("BlurEffect")
+Blur.Size = 0
+Blur.Parent = Lighting
+
+local function EnableBlur()
+    Blur.Size = 20
+end
+
+local function DisableBlur()
+    Blur.Size = 0
+end
+
+-- подключение к открытию/закрытию GUI
+if ThemeManager.Library and ThemeManager.Library.MainFrame then
+    ThemeManager.Library.MainFrame:GetPropertyChangedSignal("Visible"):Connect(function()
+        if ThemeManager.Library.MainFrame.Visible then
+            EnableBlur()
+        else
+            DisableBlur()
+        end
+    end)
+end
